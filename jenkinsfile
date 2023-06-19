@@ -6,8 +6,17 @@ pipeline {
 		{
             steps 
 			{
-                powershell 'mvn -B -DskipTests clean install'
+                powershell 'mvn clean install'
             }
         }
+		
+		stage ('Test')
+		{
+		    steps
+			{
+		        powershell 'mvn test'
+			}
+		}
+		
 	}
 }	
